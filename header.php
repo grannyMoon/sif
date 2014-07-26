@@ -128,7 +128,7 @@
       <div class="col-sm-3 hidden-xs"></div>
       <div class="col-sm-9 col-xs-12">
         <div class="pull-left"></div>bilde
-        <div class="pull-right">Logg inn | registrer deg SØK</div>
+        <div class="pull-right">Logg inn | registrer deg SÃ˜K</div>
       </div>
 		</header>
     
@@ -137,9 +137,13 @@
       <div class="col-sm-3 hidden-xs" id="main-header-area">
         <nav id="nav" role="navigation">
           <?php 
-          // wp_nav_menu( array('menu' => 'primary') ); 
           // Get the sitewide menu
-          get_sitewide_menu();
+          set_sitewide_menu();
+          $menu = unserialize(get_site_option('sitewide_menu'));
+//          print "<pre>";
+//          var_dump($menu);
+//          print "</pre>";
+          print get_sitewide_menu($menu);
           ?>
           
         </nav>
