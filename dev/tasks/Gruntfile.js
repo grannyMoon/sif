@@ -209,6 +209,8 @@ module.exports = function (grunt) {
     
   }); //end grunt package configs
   
+  grunt.loadNpmTasks('grunt-sass');
+  
   //Asset pipelines
   grunt.registerTask('prepJS',     [ 'copy:js' ]);
   grunt.registerTask('prepStyles', [ 'sass:dist', 'autoprefixer', 'cssmin' ]);
