@@ -7,6 +7,65 @@ Style sheet for Sverresborg Idrettsforening
 //Load bootstrap
 @import 'bootstrap/bootstrap';
 
-div {
+// This and that
+// --------------------------------------------------
+
+a {
+  color: $sif-green;
+  
+  &:hover, &:focus {
+    color: $sif-green-darker;
+  }  
+}
+
+/*div {
   border: 1px #000 solid;
+}*/
+
+// Header
+// --------------------------------------------------
+
+#header {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#header-login {
+  margin-right: 3px;
+}
+
+// Site wide menu class
+// --------------------------------------------------
+
+#sif-menu {
+  padding-top: 20px;
+  
+  a {
+    padding-left: 10px;
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  > li {
+    border-top: $gray-light solid 1px;
+    padding-top: 10px;
+    font-size: $font-size-h2;  
+  }
+  
+  > li:last-child {
+    border-bottom: $gray-light solid 1px;
+  }
+  
+  .sif-submenu a {
+    color: $gray-dark;
+  }
+  
+}
+
+.sif-submenu {
+  padding-left: 15px;
+  font-size: $font-size-h4;
 }
