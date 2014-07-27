@@ -66,7 +66,7 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 	 * If the supplied array is part of a sub-menu, add the
 	 * sub-menu class instead of the menu ID for CSS styling
 	 */
-	$attr = (!$is_sub) ? ' id="menu"' : ' class="submenu"';
+	$attr = (!$is_sub) ? ' id="sif-menu"' : ' class="sif-submenu"';
 	$menu = "<ul$attr>\n"; // Open the menu container
 	/*
 	 * Loop through the array to extract element values
