@@ -4,8 +4,11 @@
  * @subpackage Sverresborg Idrettsforening
  * @since Sverresborg Idrettsforening 1.0
  */
-
+// Register sitewide menu
 include_once 'functions-menu.php';
+
+// Register Custom Navigation Walker for site spesific menus
+require_once('wp_bootstrap_navwalker.php');
 
 	// Options Framework (https://github.com/devinsays/options-framework-plugin)
 	if ( !function_exists( 'optionsframework_init' ) ) {
