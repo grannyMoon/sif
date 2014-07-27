@@ -121,14 +121,28 @@
 
 <body <?php body_class(); ?>>
 
-	<!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
   <div id="wrapper" class="container-fluid">
 
     <header id="header" role="banner" class="row">
       <div class="col-sm-3 hidden-xs"></div>
       <div class="col-sm-9 col-xs-12">
-        <div class="pull-left"></div>bilde
-        <div class="pull-right">Logg inn | registrer deg SØK</div>
+        <div class="pull-left">
+          <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborg.png' />
+        </div>
+           
+        <div class="pull-right">
+          <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+              <div>
+                <input type="search" id="s" name="s" value="" placeholder="Søk"/>
+
+                  <input type="submit" value="<?php _e('Search','sif'); ?>" id="searchsubmit" />
+              </div>
+          </form>
+        </div>
+        
+        <div class="pull-right" id='header-login'>
+          <a href='<?php echo wp_login_url(); ?>'>Logg inn</a>
+        </div>
       </div>
 		</header>
     
