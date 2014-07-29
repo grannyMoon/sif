@@ -3,11 +3,15 @@
 (function($) {
   
   $( document ).ready(function() {
+    
     $("#sif-menu >> a").prop("href", "#");
     $(".sif-submenu").hide();
     $("#sif-menu >> a").click(function(e) {
       console.log($(this).next().toggle('fast'));
     });
+    
+    // TODO: Lag media sjekk og legg til denne og masonry
+    // $(".widget").addClass("col-xs-6");
   });
   
 })(jQuery);

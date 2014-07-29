@@ -128,6 +128,9 @@
       <div class="col-sm-9 col-xs-12">
         <div class="pull-left">
           <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborg.png' />
+          <span id="header-category">
+            <?php print get_blog_option($site['blog_id'], 'site_category');?>
+          </span>
         </div>
            
         <div class="pull-right">
@@ -157,7 +160,7 @@
 //          print "<pre>";
 //          var_dump($menu);
 //          print "</pre>";
-          print get_sitewide_menu($menu);
+          print_sitewide_menu($menu);
           ?>
           
         </nav>
@@ -166,3 +169,25 @@
       <!--Main content section, div ends in footer.php-->
       <div class="col-sm-9 col-xs-12" id="main-area">
 
+         <?php 
+         if (is_page_template( 'page-main.php' )) {
+           print do_shortcode("[rev_slider 1]"); 
+         }
+         ?>
+
+        <nav id="primary-navigation" class="navbar navbar-default" role="navigation">
+          <?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
+              wp_nav_menu( array(
+                  'menu'              => 'primary',
+                  'theme_location'    => 'primary',
+                  'depth'             => 2,
+                  'container'         => 'div',
+                  'container_class'   => 'collapse navbar-collapse ',
+                  'container_id'      => 'bs-example-navbar-collapse-1',
+                  'menu_class'        => 'nav navbar-nav',
+                  'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                  'walker'            => new wp_bootstrap_navwalker())
+              );
+            ?>
+
+        </nav>

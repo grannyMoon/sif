@@ -123,7 +123,7 @@ require_once('wp_bootstrap_navwalker.php');
 
 	// Posted On
 	function posted_on() {
-		printf( __( '<span class="sep">Posted </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a> by <span class="byline author vcard">%5$s</span>', '' ),
+		printf( __( '<span class="sep">Lagt til </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a> av <span class="byline author vcard">%5$s</span>', '' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
@@ -184,4 +184,35 @@ function sif_handle_upload_prefilter($file)
         return $file; 
 }
 */
-?>
+
+function new_excerpt_replace( $excerpt ) {
+	return str_replace( '[...]', '...', $excerpt );
+}
+add_filter( 'wp_trim_excerpt', 'new_excerpt_replace' );
+
+function new_excerpt_more( $more ) {
+	return ' <br><br><h3><a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Les videre', 'your-text-domain') . '</a></h3>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+
+function wptp_add_categories_to_attachments() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+}
+add_action( 'init' , 'wptp_add_categories_to_attachments' );
+
+function remove_calendar_widget() {
+	unregister_widget('WP_Widget_Pages');
+	unregister_widget('WP_Widget_Calendar');
+	unregister_widget('WP_Widget_Links');
+	unregister_widget('WP_Widget_Meta');
+	unregister_widget('WP_Widget_Search');
+	unregister_widget('WP_Widget_Text');
+	unregister_widget('WP_Widget_Categories');
+	unregister_widget('WP_Widget_Recent_Posts');
+	unregister_widget('WP_Widget_Recent_Comments');
+	unregister_widget('WP_Widget_RSS');
+	unregister_widget('WP_Widget_Tag_Cloud');
+	unregister_widget('WP_Nav_Menu_Widget');
+}
+
+add_action( 'widgets_init', 'remove_calendar_widget' );

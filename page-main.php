@@ -5,51 +5,54 @@
  * @subpackage Sverresborg Idrettsforening
  * @since Sverresborg Idrettsforening 1.0
  */
- get_header(); 
- print do_shortcode("[rev_slider 1]");
- 
- ?>
-			<nav id="primary-navigation" class="navbar navbar-default" role="navigation">
-				<?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
-            wp_nav_menu( array(
-                'menu'              => 'primary',
-                'theme_location'    => 'primary',
-                'depth'             => 2,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-                'container_id'      => 'bs-example-navbar-collapse-1',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
-            );
-          ?>
-        
-			</nav>
+get_header(); 
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
-		<article class="post" id="post-<?php the_ID(); ?>">
+$args = array( 'posts_per_page' => 5);?>
 
-			<h2><?php the_title(); ?></h2>
+<div class="row">
+  <div class="col-sm-8 col-md-9">
 
-			<?php posted_on(); ?>
+<?php
+$myposts = get_posts( $args );
+foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+		<article class="post sif-post" id="post-<?php the_ID(); ?>">
 
-			<div class="entry">
-        
-				<?php the_content(); ?>
+      <?php
+        if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+          $attr = array(
+            'class'	=> "img-responsive sif-image-responsive",
+          );
+          the_post_thumbnail( 'large', $attr );
+        }
+      ?>
+      
+      <div class="sif-post-wrapper">
+        <h2><?php the_title(); ?></h2>
 
-				<?php wp_link_pages(array('before' => __('Pages: ','sif'), 'next_or_number' => 'number')); ?>
+        <?php // posted_on(); ?>
 
-			</div>
+        <div class="entry">
 
-			<?php edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
+          <?php the_excerpt(); ?>
 
-		</article>
+          <?php wp_link_pages(array('before' => __('Pages: ','sif'), 'next_or_number' => 'number')); ?>
+
+        </div>
+
+        <?php // edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
+      
+      </div>
 		
-		<?php comments_template(); ?>
+    </article>
+<?php endforeach; 
+wp_reset_postdata();?>
 
-		<?php endwhile; endif; ?>
-
-<?php get_sidebar(); ?>
+<?php post_navigation(); ?>
+</div>
+  <div class="col-md-3 col-sm-4">
+    <?php get_sidebar(); ?>
+  </div>
+</div>
+<?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>

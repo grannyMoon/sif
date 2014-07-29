@@ -60,6 +60,20 @@ function set_sitewide_menu() {
   
 }
 
+function print_sitewide_menu($menu_array) {
+ 
+  /**
+   * Add custom items to array
+   */
+  $custom_array = array('display' => 'Utvikling', 
+                        'url' => '/utvikling/');
+  
+  array_push($menu_array, $custom_array);
+  
+  print get_sitewide_menu($menu_array);
+  
+}
+
 function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 
   /*
