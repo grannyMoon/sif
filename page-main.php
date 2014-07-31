@@ -52,6 +52,7 @@ wp_reset_postdata();?>
   <div class="col-md-3 col-sm-4">
     <?php get_sidebar(); ?>
   </div>
+  <div class="sampleClass"></div>
 </div>
 <?php // get_sidebar(); ?>
 

@@ -4,6 +4,8 @@ Style sheet for Sverresborg Idrettsforening
 
 */
 
+/*$icon-font-path: "bootstrap/" !default;*/
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 html {
@@ -320,8 +322,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('bootstrap/glyphicons-halflings-regular.eot');
-  src: url('bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
@@ -7899,6 +7901,16 @@ li.nav-site-home a {
   font-size: 18px;
 }
 
+.sampleClass {
+  float: left;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 480px) {
+  .sampleClass {
+    float: none;
+  }
+}
+
 .widget {
   background-color: #999;
   padding: 2px 10px 20px;
@@ -7909,17 +7921,20 @@ li.nav-site-home a {
   margin: 30px 0 30px;
 }
 
-.widget ul {
+.widget ul,
+.widget ol {
   padding: 0px;
 }
 
-.widget ul li {
+.widget ul li,
+.widget ol li {
   border-top: #777777 solid 1px;
   list-style: none;
   padding: 3px;
 }
 
-.widget ul > li:last-child {
+.widget ul > li:last-child,
+.widget ol > li:last-child {
   border-bottom: #777777 solid 1px;
 }
 
@@ -7943,4 +7958,75 @@ li.nav-site-home a {
 
 #iclw-2 {
   background-color: #fff;
+}
+
+#tribe-events-list-widget-2 {
+  background-color: #fff;
+}
+
+#tribe-events-list-widget-2 h4,
+#tribe-events-list-widget-2 .duration {
+  font-size: 14px;
+  margin: 0px;
+}
+
+#tribe-events-list-widget-2 .duration {
+  font-size: 12px;
+}
+
+#tribe-events-list-widget-2 .summary {
+  padding-top: 3px;
+}
+
+#tribe-events-list-widget-2 .tribe-events-widget-link a,
+#tribe-events-list-widget-2 .duration {
+  font-weight: normal;
+}
+
+.header-text-left {
+  position: relative;
+}
+
+.header-text-left #header-category {
+  position: absolute;
+  bottom: 0;
+  right: -90px;
+}
+
+.header-text-right {
+  position: relative;
+  line-height: 34px;
+}
+
+.header-text-right .search-wrapper {
+  position: absolute;
+  top: 20px;
+  line-height: 20px;
+  right: 0px;
+}
+
+.header-text-right #header-login {
+  position: absolute;
+  top: 13px;
+  height: 20px;
+  right: 178px;
+  width: 75px;
+}
+
+.header-text-right #searchform > div {
+  background-color: #FFF;
+  width: 192px;
+}
+
+.header-text-right .sif-btn {
+  border: 0px;
+  margin-top: -2px;
+  margin-left: -5px;
+  padding-right: 10px;
+  height: 20px;
+  background-color: #fff;
+}
+
+.header-text-right #s {
+  border: 0px;
 }

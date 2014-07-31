@@ -8,21 +8,32 @@
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			
-		<article class="post" id="post-<?php the_ID(); ?>">
+		<article class="post sif-post" id="post-<?php the_ID(); ?>">
 
-			<h2><?php the_title(); ?></h2>
+      <?php
+        if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+          $attr = array(
+            'class'	=> "img-responsive sif-image-responsive",
+          );
+          the_post_thumbnail( 'large', $attr );
+        }
+      ?>
+      
+      <div class="sif-post-wrapper">
+        <h2><?php the_title(); ?></h2>
 
-			<?php posted_on(); ?>
+        <?php posted_on(); ?>
 
-			<div class="entry">
-        
-				<?php the_content(); ?>
+        <div class="entry">
 
-				<?php wp_link_pages(array('before' => __('Pages: ','sif'), 'next_or_number' => 'number')); ?>
+          <?php the_content(); ?>
 
-			</div>
+          <?php wp_link_pages(array('before' => __('Pages: ','sif'), 'next_or_number' => 'number')); ?>
 
-			<?php edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
+        </div>
+
+        <?php edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
+      </div>
 
 		</article>
 		

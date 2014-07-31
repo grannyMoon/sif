@@ -66,9 +66,22 @@ function print_sitewide_menu($menu_array) {
    * Add custom items to array
    */
   $custom_array = array('display' => 'Utvikling', 
-                        'url' => '/utvikling/');
+                        'url' => '/utvikling/',
+                        'sub' => array(
+                            array(
+                            'display' => 'test1',
+                            'sub' => array(
+                                array(
+                                'display' => 'test2',
+                            ))
+                        ))
+  );
   
   array_push($menu_array, $custom_array);
+
+//  print "<pre>";
+//  var_dump($menu_array);
+//  print "</pre>";
   
   print get_sitewide_menu($menu_array);
   
@@ -102,6 +115,8 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 			 */
 			if(is_array($val))
 			{
+        $link = "<span class='glyphicon glyphicon-chevron-up"
+                . " pull-right'></span>";
 				$sub = get_sitewide_menu($val, TRUE);
 			}
 
@@ -125,7 +140,7 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 		}
 
     /**
-     * Mark active element as -um- active
+     * Mark active element as active
      */
     if ($_SERVER["REQUEST_URI"] == $url) {
       $active = " class='active'";
@@ -134,13 +149,13 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 		/*
 		 * Use the created variables to output HTML
 		 */
-		$menu .= "<li><a href='$url'$active>$display</a>$sub</li>\n";
+		$menu .= "<li><a href='$url'$active>$display</a>$link$sub</li>\n";
 
 		/*
 		 * Destroy the variables to ensure they're reset
 		 * on each iteration
 		 */
-		unset($url, $display, $sub, $active);
+		unset($url, $display, $sub, $active, $link);
 	}
 
 	/*

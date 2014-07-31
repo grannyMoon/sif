@@ -44,7 +44,7 @@
 
 <div id="respond">
 
-	<h2><?php comment_form_title( __('Leave a Reply','sif'), __('Leave a Reply to %s','sif') ); ?></h2>
+	<h2>Lag en kommentar</h2>
 
 	<div class="cancel-comment-reply">
 		<?php cancel_comment_reply_link(); ?>
@@ -64,18 +64,18 @@
 
 			<div>
 				<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-				<label for="author"><?php _e('Name','sif'); ?> <?php if ($req) echo "(required)"; ?></label>
+				<label for="author">Navn <?php if ($req) echo "(påkrevd)"; ?></label>
 			</div>
 
 			<div>
 				<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-				<label for="email"><?php _e('Mail (will not be published)','sif'); ?> <?php if ($req) echo "(required)"; ?></label>
+				<label for="email">E-post (vil ikke vises i kommentaren) <?php if ($req) echo "(påkrevd)"; ?></label>
 			</div>
 
-			<div>
+<!--			<div>
 				<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
 				<label for="url"><?php _e('Website','sif'); ?></label>
-			</div>
+			</div>-->
 
 		<?php endif; ?>
 
@@ -86,7 +86,7 @@
 		</div>
 
 		<div>
-			<input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment','sif'); ?>" />
+			<input name="submit" type="submit" id="submit" tabindex="5" value="Lagre kommentar" />
 			<?php comment_id_fields(); ?>
 		</div>
 		

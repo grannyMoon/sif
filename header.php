@@ -126,25 +126,29 @@
     <header id="header" role="banner" class="row">
       <div class="col-sm-3 hidden-xs"></div>
       <div class="col-sm-9 col-xs-12">
-        <div class="pull-left">
+        <div class="pull-left header-text-left">
           <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborg.png' />
           <span id="header-category">
             <?php print get_blog_option($site['blog_id'], 'site_category');?>
           </span>
         </div>
            
-        <div class="pull-right">
-          <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-              <div>
-                <input type="search" id="s" name="s" value="" placeholder="Søk"/>
+        <div class="pull-right header-text-right ">
+          <div class="pull-right search-wrapper">
+            <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+                <div>
+                  <input type="search" id="s" name="s" value="" placeholder="Søk"/>
 
-                  <input type="submit" value="<?php _e('Search','sif'); ?>" id="searchsubmit" />
-              </div>
-          </form>
-        </div>
-        
-        <div class="pull-right" id='header-login'>
-          <a href='<?php echo wp_login_url(); ?>'>Logg inn</a>
+                  <button type="submit" class="sif-btn" value="<?php _e('Search','sif'); ?>" id="searchsubmit">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
+            </form>
+          </div>
+
+          <div class="pull-right" id='header-login'>
+            <a href='<?php echo wp_login_url(); ?>'>Logg inn</a>
+          </div>
         </div>
       </div>
 		</header>

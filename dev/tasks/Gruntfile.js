@@ -145,6 +145,7 @@ module.exports = function (grunt) {
             'modernizr.js': 'modernizr/modernizr.js',
             'jquery.js': 'jquery/jquery.js',
             'bootstrap.js': 'bootstrap-sass-official/assets/javascripts/bootstrap.js',
+            'masonry.js': 'masonry/dist/masonry.pkgd.js',
         }
       },
       sass: {

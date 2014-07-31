@@ -37,8 +37,9 @@
 
 			<?php while (have_posts()) : the_post(); ?>
 			
-				<article <?php post_class() ?>>
+				<article <?php post_class("sif-post") ?>>
 				
+          <div class="sif-post-wrapper">
 						<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					
 						<?php posted_on(); ?>
@@ -46,6 +47,7 @@
 						<div class="entry">
 							<?php the_content(); ?>
 						</div>
+          </div>
 
 				</article>
 
@@ -59,6 +61,6 @@
 
 	<?php endif; ?>
 
-<?php get_sidebar(); ?>
+<?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>
