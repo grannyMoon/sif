@@ -70,9 +70,11 @@ function print_sitewide_menu($menu_array) {
                         'sub' => array(
                             array(
                             'display' => 'test1',
+                            'url' => '/utvikling/1',
                             'sub' => array(
                                 array(
                                 'display' => 'test2',
+                                'url' => '/utvikling/2',
                             ))
                         ))
   );
@@ -115,8 +117,8 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
 			 */
 			if(is_array($val))
 			{
-        $link = "<span class='glyphicon glyphicon-chevron-up"
-                . " pull-right'></span>";
+        $link = "<span class='glyphicon glyphicon-chevron-left"
+                . " pull-right sif-menu-link'></span>";
 				$sub = get_sitewide_menu($val, TRUE);
 			}
 
@@ -142,7 +144,7 @@ function get_sitewide_menu($menu_array, $is_sub=FALSE) {
     /**
      * Mark active element as active
      */
-    if ($_SERVER["REQUEST_URI"] == $url) {
+    if (strstr($_SERVER['REQUEST_URI'], $url)) {
       $active = " class='active'";
     }
     

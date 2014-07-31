@@ -4,11 +4,31 @@
   
   $( document ).ready(function() {
     
-    // $("#sif-menu >> a").prop("href", "#");
-//    $(".sif-submenu").hide();
-    $(".glyphicon.glyphicon-chevron-up.pull-right").click(function(e) {
-      console.log($(this).toggleClass('glyphicon-chevron-up glyphicon-chevron-down'));
-      console.log($(this).next().toggle('fast'));
+    /**
+     * Rotate chevron and show sub elements
+     */
+    // $(".sif-submenu").hide();
+    $(".sif-menu-link").click(function(e) {
+      
+      var $this = $(this), transitionTime = 300;
+
+      var rotateDirection = '90';
+      if ($this.hasClass('glyphicon-chevron-left')) {
+        rotateDirection = "-90";
+      }
+      $this.animate({rotate: rotateDirection}, transitionTime, function() {
+        $this.css("transform", "");
+        $this.toggleClass('glyphicon-chevron-left glyphicon-chevron-down');
+      });
+      $(this).next().toggle(transitionTime);
+    });
+    
+    /**
+     * 
+     * @returns {undefined}Show active element in menu
+     */
+    $(window).on("load", function(){
+      $('#sif-menu').find('.active').closest('.sif-submenu').show();
     });
     
     var reload = false;

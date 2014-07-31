@@ -7896,9 +7896,23 @@ li.nav-site-home a {
   color: #333333;
 }
 
+#sif-menu .sif-menu-link {
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#sif-menu .active {
+  color: red;
+  border: 1px solid blue;
+  display: block;
+}
+
 .sif-submenu {
   padding-left: 15px;
   font-size: 18px;
+  display: none;
 }
 
 .sampleClass {

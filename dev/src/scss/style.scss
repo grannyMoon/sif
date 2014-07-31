@@ -98,11 +98,25 @@ li.nav-site-home a {
     color: $gray-dark;
   }
   
+  .sif-menu-link {
+    cursor: pointer;
+    font-size: $font-size-small;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .active {
+    color: red;
+    border: 1px solid blue;
+    display: block;
+  }
+  
 }
 
 .sif-submenu {
   padding-left: 15px;
   font-size: $font-size-h4;
+  display: none;
 }
 
 // Widgets
