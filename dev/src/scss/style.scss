@@ -58,7 +58,12 @@ a {
   }
 }
 
-
+// The Events Calendar
+// --------------------------------------------------
+#tribe-events-content {
+  padding: 2px 20px 0;
+  background-color: #FFF;
+}
 
 // Site spesific menu class
 // --------------------------------------------------
@@ -95,7 +100,7 @@ li.nav-site-home a {
   }
   
   .sif-submenu a {
-    color: $gray-dark;
+    /*color: $gray-dark;*/
   }
   
   .sif-menu-link {
@@ -105,11 +110,11 @@ li.nav-site-home a {
     margin-right: 10px;
   }
   
-  .active {
-    color: red;
-    border: 1px solid blue;
-    display: block;
+  .active, .active-parent { 
+    display: inline-block;
+    color: $gray-dark;
   }
+  
   
 }
 
@@ -132,7 +137,29 @@ li.nav-site-home a {
 }
 
 .widget {
-  background-color: #999;
+  background-color: $sif-green;
+
+  &:nth-child(3n+1) {
+    background-color: #fff;
+  }
+  &:nth-child(3n+2) {
+    background-color: $sif-green;
+    a, li {
+      color: #fff;
+    }
+  }
+  &:nth-child(3n+3) {
+    background-color: #999;
+    /*color: #fff;*/
+    a, li {
+      color: #fff;
+    }
+  }
+}
+
+.widget {
+  
+  /*background-color: #999;*/
   padding: 2px 10px 20px;
   margin-bottom: 20px;
   
@@ -158,27 +185,31 @@ li.nav-site-home a {
 }
 
 #sif-timelist-widget {
-  background-color: $sif-green;
+  /*background-color: $sif-green;*/
   
   li {
-    color: #fff;
+    /*color: #fff;*/
   }
 }
 
+#sif-team-leader-widget li {
+  /*color: #fff;*/
+}
+
 #sif-doc-widget, #archives-2 {
-  background-color: $gray-sif;
+  /*background-color: $gray-sif;*/
   
   a {
-    color: #fff;
+    /*color: #fff;*/
   }
 }
 
 #iclw-2 {
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 #tribe-events-list-widget-2 {
-  background-color: #fff;
+  /*background-color: #fff;*/
   
   h4, .duration {
     font-size: $font-size-base;
@@ -196,6 +227,10 @@ li.nav-site-home a {
   .tribe-events-widget-link a, .duration {
     font-weight: normal;
   }
+}
+
+.tribe-events-list-widget ol li {
+  margin-bottom: 0px;
 }
 
 // Headerstuffhack
@@ -247,4 +282,11 @@ li.nav-site-home a {
   #s {
     border: 0px;
   }
+}
+
+// Headerstuffhack
+// --------------------------------------------------
+
+.tribe-events-button {
+  background-color: $sif-green;
 }

@@ -25,10 +25,14 @@
     
     /**
      * 
-     * @returns {undefined}Show active element in menu
+     * Show active element in menu
      */
     $(window).on("load", function(){
-      $('#sif-menu').find('.active').closest('.sif-submenu').show();
+      var $sub = $('#sif-menu').find('.active').closest('.sif-submenu');
+      $sub.show();
+      // Sjekk dette i en dypere meny
+      $sub.prevAll('a').addClass("active-parent");
+      $sub.prevAll('span').toggleClass('glyphicon-chevron-left glyphicon-chevron-down');
     });
     
     var reload = false;

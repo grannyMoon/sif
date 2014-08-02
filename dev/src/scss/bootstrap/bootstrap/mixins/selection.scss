@@ -1,0 +1,12 @@
+// Selections
+
+@mixin selection {
+  ::-moz-selection {
+    color: #fff;
+    background: $sif-green;
+  }
+  ::selection {
+    color: #fff;
+    background: $sif-green;
+  }
+}

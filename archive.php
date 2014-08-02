@@ -11,19 +11,19 @@
  			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 
 			<?php /* If this is a category archive */ if (is_category()) { ?>
-				<h2><?php _e('Archive for the','sif'); ?> &#8216;<?php single_cat_title(); ?>&#8217; <?php _e('Category','sif'); ?></h2>
+				<h2><?php _e('Arkiv for','sif'); ?> &#8216;<?php single_cat_title(); ?>&#8217; <?php _e('kategorien(e)','sif'); ?></h2>
 
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
 				<h2><?php _e('Posts Tagged','sif'); ?> &#8216;<?php single_tag_title(); ?>&#8217;</h2>
 
 			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-				<h2><?php _e('Archive for','sif'); ?> <?php the_time('F jS, Y'); ?></h2>
+				<h2><?php _e('Arkiv for','sif'); ?> <?php the_time('F jS, Y'); ?></h2>
 
 			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-				<h2><?php _e('Archive for','sif'); ?> <?php the_time('F, Y'); ?></h2>
+				<h2><?php _e('Arkiv for','sif'); ?> <?php the_time('F, Y'); ?></h2>
 
 			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-				<h2 class="pagetitle"><?php _e('Archive for','sif'); ?> <?php the_time('Y'); ?></h2>
+				<h2 class="pagetitle"><?php _e('Arkiv for','sif'); ?> <?php the_time('Y'); ?></h2>
 
 			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
 				<h2 class="pagetitle"><?php _e('Author Archive','sif'); ?></h2>
@@ -57,9 +57,17 @@
 			
 	<?php else : ?>
 
-		<h2><?php _e('Nothing Found','sif'); ?></h2>
+		<h2><?php _e('Fant ingenting..','sif'); ?></h2>
 
 	<?php endif; ?>
+
+    
+</div>
+  <div class="col-md-3 col-sm-4">
+    <?php get_sidebar(); ?>
+  </div>
+  <div class="sampleClass"></div>
+</div>
 
 <?php // get_sidebar(); ?>
 

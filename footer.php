@@ -5,6 +5,13 @@
  * @since Sverresborg Idrettsforening 1.0
  */
 ?>
+        </div>
+          <div class="col-md-3 col-sm-4">
+            <?php get_sidebar(); ?>
+          </div>
+          <div class="sampleClass"></div>
+        </div>
+
       </div> <!--Main area-->
     </div>
 

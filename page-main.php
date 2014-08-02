@@ -9,9 +9,6 @@ get_header();
 
 $args = array( 'posts_per_page' => 5);?>
 
-<div class="row">
-  <div class="col-sm-8 col-md-9">
-
 <?php
 $myposts = get_posts( $args );
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
@@ -48,12 +45,6 @@ foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 wp_reset_postdata();?>
 
 <?php post_navigation(); ?>
-</div>
-  <div class="col-md-3 col-sm-4">
-    <?php get_sidebar(); ?>
-  </div>
-  <div class="sampleClass"></div>
-</div>
 <?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>

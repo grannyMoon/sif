@@ -1164,6 +1164,16 @@ body {
   background-color: #F2F2F2;
 }
 
+body ::-moz-selection {
+  color: #fff;
+  background: #2db978;
+}
+
+body ::selection {
+  color: #fff;
+  background: #2db978;
+}
+
 input,
 button,
 select,
@@ -7864,6 +7874,11 @@ a:focus {
   padding: 0 20px;
 }
 
+#tribe-events-content {
+  padding: 2px 20px 0;
+  background-color: #FFF;
+}
+
 li.nav-site-home a {
   font-size: 24px;
   color: #fff;
@@ -7892,10 +7907,6 @@ li.nav-site-home a {
   border-bottom: #777777 solid 1px;
 }
 
-#sif-menu .sif-submenu a {
-  color: #333333;
-}
-
 #sif-menu .sif-menu-link {
   cursor: pointer;
   font-size: 12px;
@@ -7903,10 +7914,10 @@ li.nav-site-home a {
   margin-right: 10px;
 }
 
-#sif-menu .active {
-  color: red;
-  border: 1px solid blue;
-  display: block;
+#sif-menu .active,
+#sif-menu .active-parent {
+  display: inline-block;
+  color: #333333;
 }
 
 .sif-submenu {
@@ -7926,7 +7937,34 @@ li.nav-site-home a {
 }
 
 .widget {
+  background-color: #2db978;
+}
+
+.widget:nth-child(3n+1) {
+  background-color: #fff;
+}
+
+.widget:nth-child(3n+2) {
+  background-color: #2db978;
+}
+
+.widget:nth-child(3n+2) a,
+.widget:nth-child(3n+2) li {
+  color: #fff;
+}
+
+.widget:nth-child(3n+3) {
   background-color: #999;
+  /*color: #fff;*/
+}
+
+.widget:nth-child(3n+3) a,
+.widget:nth-child(3n+3) li {
+  color: #fff;
+}
+
+.widget {
+  /*background-color: #999;*/
   padding: 2px 10px 20px;
   margin-bottom: 20px;
 }
@@ -7953,29 +7991,16 @@ li.nav-site-home a {
 }
 
 #sif-timelist-widget {
-  background-color: #2db978;
-}
-
-#sif-timelist-widget li {
-  color: #fff;
+  /*background-color: $sif-green;*/
 }
 
 #sif-doc-widget,
 #archives-2 {
-  background-color: #808080;
-}
-
-#sif-doc-widget a,
-#archives-2 a {
-  color: #fff;
-}
-
-#iclw-2 {
-  background-color: #fff;
+  /*background-color: $gray-sif;*/
 }
 
 #tribe-events-list-widget-2 {
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 #tribe-events-list-widget-2 h4,
@@ -7995,6 +8020,10 @@ li.nav-site-home a {
 #tribe-events-list-widget-2 .tribe-events-widget-link a,
 #tribe-events-list-widget-2 .duration {
   font-weight: normal;
+}
+
+.tribe-events-list-widget ol li {
+  margin-bottom: 0px;
 }
 
 .header-text-left {
@@ -8043,4 +8072,8 @@ li.nav-site-home a {
 
 .header-text-right #s {
   border: 0px;
+}
+
+.tribe-events-button {
+  background-color: #2db978;
 }
