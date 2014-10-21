@@ -7,7 +7,7 @@ Style sheet for Sverresborg Idrettsforening
 //Load bootstrap
 @import 'bootstrap/bootstrap';
 
-// This and that
+// This and that / generic stuff
 // --------------------------------------------------
 
 a {
@@ -18,9 +18,20 @@ a {
   }  
 }
 
+input, textArea {
+  border: 0px;
+}
+
 /*div {
   border: 1px #000 solid;
 }*/
+
+// Comments
+// --------------------------------------------------
+
+.comment {
+  margin-top: 10px;
+}
 
 // Header
 // --------------------------------------------------
@@ -74,14 +85,76 @@ li.nav-site-home a {
 }
 
 
+// Site wide _mobile_ menu class
+// --------------------------------------------------
+
+#main-header-area > .navbar-default {
+  background-color: $body-bg;
+  border-color: $body-bg;
+  
+  .navbar-collapse {
+    border-color: $body-bg;
+  }
+  
+  .navbar-brand {
+    color: $gray;
+  }
+  
+  #sitewide-navbar-collapse {
+    position: absolute;
+    z-index: 9999;
+    background-color: $body-bg;
+    overflow: hidden;  
+  }
+  
+  .sif-submenu {
+    padding-left: 15px;
+    font-size: $font-size-h3;
+    display: none;
+  }
+  
+}
+
+#sif-mobile-menu {
+  width: 300px;
+  padding-top: 10px;
+  padding-left: 10px;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  > li {
+    padding-top: 10px;
+    font-size: $font-size-h3;  
+  }
+
+  .sif-menu-link {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .active, .active-parent { 
+    display: inline-block;
+    color: $gray-dark;
+  }
+
+
+}
+
 // Site wide menu class
 // --------------------------------------------------
 
 #sif-menu {
-  padding-top: 20px;
+  padding-top: 2px;
   
   a {
-    padding-left: 10px;
+    padding-left: 0px;
     text-decoration: none;
   }
   
@@ -99,15 +172,11 @@ li.nav-site-home a {
     border-bottom: $gray-light solid 1px;
   }
   
-  .sif-submenu a {
-    /*color: $gray-dark;*/
-  }
-  
   .sif-menu-link {
     cursor: pointer;
     font-size: $font-size-small;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 7px;
   }
   
   .active, .active-parent { 
@@ -184,32 +253,7 @@ li.nav-site-home a {
    
 }
 
-#sif-timelist-widget {
-  /*background-color: $sif-green;*/
-  
-  li {
-    /*color: #fff;*/
-  }
-}
-
-#sif-team-leader-widget li {
-  /*color: #fff;*/
-}
-
-#sif-doc-widget, #archives-2 {
-  /*background-color: $gray-sif;*/
-  
-  a {
-    /*color: #fff;*/
-  }
-}
-
-#iclw-2 {
-  /*background-color: #fff;*/
-}
-
 #tribe-events-list-widget-2 {
-  /*background-color: #fff;*/
   
   h4, .duration {
     font-size: $font-size-base;
@@ -239,10 +283,10 @@ li.nav-site-home a {
 .header-text-left {
   position: relative;
   
-  #header-category {
+  #main-header-area {
     position: absolute;
-    bottom: 0;
-    right: -90px;
+    bottom: -25px;
+    right: -140px;
   }
 }
 
@@ -255,19 +299,23 @@ li.nav-site-home a {
     top: 20px;
     line-height: 20px;
     right: 0px;
+    
+    input {
+      width: 151px;
+    }
   }
   
   #header-login {
     position: absolute;
     top: 13px;
     height: 20px;
-    right: 178px;
+    right: 168px;
     width: 75px;
   }
   
   #searchform > div {
     background-color: #FFF;
-    width: 192px;
+    width: 182px;
   }
   
   .sif-btn {

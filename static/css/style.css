@@ -322,8 +322,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot');
-  src: url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('http://sif/fotball/gutter03/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('http://test.sverresborg-if.no/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('http://test.sverresborg-if.no/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://test.sverresborg-if.no/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('http://test.sverresborg-if.no/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('http://test.sverresborg-if.no/wp-content/themes/sif/static/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
@@ -7844,6 +7844,15 @@ a:focus {
   color: #196743;
 }
 
+input,
+textArea {
+  border: 0px;
+}
+
+.comment {
+  margin-top: 10px;
+}
+
 #header {
   margin-top: 40px;
   margin-bottom: 10px;
@@ -7884,12 +7893,69 @@ li.nav-site-home a {
   color: #fff;
 }
 
+#main-header-area > .navbar-default {
+  background-color: #F2F2F2;
+  border-color: #F2F2F2;
+}
+
+#main-header-area > .navbar-default .navbar-collapse {
+  border-color: #F2F2F2;
+}
+
+#main-header-area > .navbar-default .navbar-brand {
+  color: #555555;
+}
+
+#main-header-area > .navbar-default #sitewide-navbar-collapse {
+  position: absolute;
+  z-index: 9999;
+  background-color: #F2F2F2;
+  overflow: hidden;
+}
+
+#main-header-area > .navbar-default .sif-submenu {
+  padding-left: 15px;
+  font-size: 24px;
+  display: none;
+}
+
+#sif-mobile-menu {
+  width: 300px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+#sif-mobile-menu a {
+  text-decoration: none;
+}
+
+#sif-mobile-menu li {
+  list-style: none;
+}
+
+#sif-mobile-menu > li {
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+#sif-mobile-menu .sif-menu-link {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#sif-mobile-menu .active,
+#sif-mobile-menu .active-parent {
+  display: inline-block;
+  color: #333333;
+}
+
 #sif-menu {
-  padding-top: 20px;
+  padding-top: 2px;
 }
 
 #sif-menu a {
-  padding-left: 10px;
+  padding-left: 0px;
   text-decoration: none;
 }
 
@@ -7911,7 +7977,7 @@ li.nav-site-home a {
   cursor: pointer;
   font-size: 12px;
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 #sif-menu .active,
@@ -7990,19 +8056,6 @@ li.nav-site-home a {
   border-bottom: #777777 solid 1px;
 }
 
-#sif-timelist-widget {
-  /*background-color: $sif-green;*/
-}
-
-#sif-doc-widget,
-#archives-2 {
-  /*background-color: $gray-sif;*/
-}
-
-#tribe-events-list-widget-2 {
-  /*background-color: #fff;*/
-}
-
 #tribe-events-list-widget-2 h4,
 #tribe-events-list-widget-2 .duration {
   font-size: 14px;
@@ -8030,10 +8083,10 @@ li.nav-site-home a {
   position: relative;
 }
 
-.header-text-left #header-category {
+.header-text-left #main-header-area {
   position: absolute;
-  bottom: 0;
-  right: -90px;
+  bottom: -25px;
+  right: -140px;
 }
 
 .header-text-right {
@@ -8048,17 +8101,21 @@ li.nav-site-home a {
   right: 0px;
 }
 
+.header-text-right .search-wrapper input {
+  width: 151px;
+}
+
 .header-text-right #header-login {
   position: absolute;
   top: 13px;
   height: 20px;
-  right: 178px;
+  right: 168px;
   width: 75px;
 }
 
 .header-text-right #searchform > div {
   background-color: #FFF;
-  width: 192px;
+  width: 182px;
 }
 
 .header-text-right .sif-btn {

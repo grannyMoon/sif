@@ -127,10 +127,40 @@
       <div class="col-sm-3 hidden-xs"></div>
       <div class="col-sm-9 col-xs-12">
         <div class="pull-left header-text-left">
-          <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborg.png' />
+          <a href="/">
+            <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborg.png' />
+          </a>
           <span id="header-category">
-            <?php print get_blog_option($site['blog_id'], 'site_category');?>
+            
           </span>
+          <div class="visible-xs-block" id="main-header-area">
+            <nav id="sitewide-navigation" class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sitewide-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="<?php echo home_url(); ?>">
+                    <?php print get_blog_option($site['blog_id'], 'site_category');?>
+                  </a>
+                </div>
+                <div class="collapse navbar-collapse" role="navigation" id="sitewide-navbar-collapse">
+              <?php 
+              // Get the sitewide menu
+              set_sitewide_menu();
+              $menu = unserialize(get_site_option('sitewide_menu'));
+    //          print "<pre>";
+    //          var_dump($menu);
+    //          print "</pre>";
+              print_sitewide_menu($menu, "sif-mobile-menu");
+              ?>
+              </div>
+            </nav>
+          </div>
         </div>
            
         <div class="pull-right header-text-right ">
@@ -164,7 +194,7 @@
 //          print "<pre>";
 //          var_dump($menu);
 //          print "</pre>";
-          print_sitewide_menu($menu);
+          print_sitewide_menu($menu, "sif-menu");
           ?>
           
         </nav>
@@ -175,11 +205,24 @@
 
          <?php 
          if (is_page_template( 'page-main.php' )) {
-           print do_shortcode("[rev_slider 1]"); 
+           print do_shortcode("[rev_slider velkommen]"); 
          }
          ?>
 
         <nav id="primary-navigation" class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand visible-xs-block" href="<?php echo home_url(); ?>">
+                        <?php bloginfo('name'); ?>
+                    </a>
+            </div>
           <?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
               wp_nav_menu( array(
                   'menu'              => 'primary',
@@ -193,7 +236,7 @@
                   'walker'            => new wp_bootstrap_navwalker())
               );
             ?>
-
+          </div>
         </nav>
         <div class="row">
           <div class="col-sm-8 col-md-9">

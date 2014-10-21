@@ -202,7 +202,7 @@ module.exports = function (grunt) {
           archive: '../../production/sif.zip'
         },
         files: [
-          { src: ['../../**/*',  '!../../dev/**', '!../../production/**'] },
+          { src: ['../../**/*',  '!../../dev/**', '!../../production/**'], dest: 'internal_folder/internal_folder'},
         ]
       }
     }

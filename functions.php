@@ -7,6 +7,13 @@
 // Register sitewide menu
 include_once 'functions-menu.php';
 
+// Register new blog details for SIF
+// add_action('wpmu_new_blog', 'SIFRegisterBlogDetails');
+
+//function SIFRegisterBlogDetails () {
+//include_once 'functions-set-department.php';
+//}
+
 // Register Custom Navigation Walker for site spesific menus
 require_once('wp_bootstrap_navwalker.php');
 
