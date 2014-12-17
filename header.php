@@ -62,10 +62,9 @@
 			 - see wikipedia for info on browser support: http://mky.be/favicon/
 			 - See Google Developer docs for Android options. https://developers.google.com/chrome/mobile/docs/installtohomescreen
 		*/
-		if (true == of_get_option('head_favicon')) {
-			echo '<meta name=”mobile-web-app-capable” content=”yes”>';
-			echo '<link rel="shortcut icon" sizes=”1024x1024” href="' . of_get_option("head_favicon") . '" />';
-		}
+    echo '<meta name=”mobile-web-app-capable” content=”yes”>';
+    echo '<link href="' . get_stylesheet_directory_uri() . '/favicon.ico" rel="shortcut icon" type="image/x-icon" />';
+
 
 
 		/*
@@ -126,33 +125,31 @@
   <div id="wrapper" class="container">
 
     <header id="header" role="banner" class="row">
-          <nav id="sitewide-navigation" class="navbar navbar-default visible-xs-block" role="navigation">
-            <div class="container-fluid sitewide-mobile">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-hover="dropdown" data-toggle="collapse" data-target="#sitewide-navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a href="/" class=" pull-right">
-                  <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborgMobile.png' />
-                </a>
-              </div>
-              <div class="collapse navbar-collapse" role="navigation" id="sitewide-navbar-collapse">
-            <?php
-            // Get the sitewide menu
-            set_sitewide_menu();
-            $menu = unserialize(get_site_option('sitewide_menu'));
-  //          print "<pre>";
-  //          var_dump($menu);
-  //          print "</pre>";
-            print_sitewide_menu($menu, "sif-mobile-menu");
-            ?>
-              </div>
-            </div>
-          </nav>
+
+      <nav id="sitewide-navigation" class="navbar navbar-default visible-xs-block" role="navigation">
+        <div class="container-fluid sitewide-mobile">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-hover="dropdown" data-toggle="collapse" data-target="#sitewide-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" class=" pull-right">
+              <img src='<?php echo get_template_directory_uri(); ?>/static/images/LogoSverresborgMobile.png' />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" role="navigation" id="sitewide-navbar-collapse">
+        <?php
+        // Get the sitewide menu
+        set_sitewide_menu();
+        $menu = unserialize(get_site_option('sitewide_menu'));
+        print_sitewide_menu($menu, "sif-mobile-menu");
+        ?>
+          </div>
+        </div>
+      </nav>
 
       <div class="col-md-2 col-sm-3 hidden-xs"></div>
       <div class="col-md-10 col-sm-9 col-xs-12">
