@@ -8,7 +8,7 @@
 
 	<?php if (have_posts()) : ?>
 
-		<h2><?php _e('Search Results','sif'); ?></h2>
+		<h2><?php _e('Søkeresultater','sif'); ?></h2>
 
 		<?php post_navigation(); ?>
 
@@ -18,13 +18,13 @@
 
 				<h2><?php the_title(); ?></h2>
 
-				<?php posted_on(); ?>
-
 				<div class="entry">
 
 					<?php the_excerpt(); ?>
 
 				</div>
+
+				<?php posted_on(); ?>
 
 			</article>
 
@@ -34,7 +34,7 @@
 
 	<?php else : ?>
 
-		<h2><?php _e('Nothing Found','sif'); ?></h2>
+		<h2><?php _e('Ingenting funnet','sif'); ?></h2>
 
 	<?php endif; ?>
 

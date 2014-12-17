@@ -5,7 +5,7 @@
  * @subpackage Sverresborg Idrettsforening
  * @since Sverresborg Idrettsforening 1.0
  */
-get_header(); 
+get_header();
 
 $args = array( 'posts_per_page' => 5);?>
 
@@ -22,11 +22,9 @@ foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
           the_post_thumbnail( 'large', $attr );
         }
       ?>
-      
+
       <div class="sif-post-wrapper">
         <h2><?php the_title(); ?></h2>
-
-        <?php // posted_on(); ?>
 
         <div class="entry">
 
@@ -36,12 +34,14 @@ foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 
         </div>
 
+        <?php posted_on(); ?>
+
         <?php // edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
-      
+
       </div>
-		
+
     </article>
-<?php endforeach; 
+<?php endforeach;
 wp_reset_postdata();?>
 
 <?php post_navigation(); ?>

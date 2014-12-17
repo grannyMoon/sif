@@ -1157,7 +1157,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -7858,6 +7858,12 @@ textArea {
   margin-bottom: 10px;
 }
 
+@media (max-width: 767px) {
+  #header {
+    margin: 0;
+  }
+}
+
 #header-login {
   margin-right: 3px;
 }
@@ -7893,34 +7899,30 @@ li.nav-site-home a {
   color: #fff;
 }
 
-#main-header-area > .navbar-default {
+.sitewide-mobile .navbar-toggle {
+  float: left;
+}
+
+#sitewide-navigation {
   background-color: #F2F2F2;
   border-color: #F2F2F2;
+  margin-bottom: 0px;
 }
 
-#main-header-area > .navbar-default .navbar-collapse {
+#sitewide-navigation .navbar-collapse {
   border-color: #F2F2F2;
 }
 
-#main-header-area > .navbar-default .navbar-brand {
+#sitewide-navigation .navbar-brand {
   color: #555555;
 }
 
-#main-header-area > .navbar-default #sitewide-navbar-collapse {
-  position: absolute;
-  z-index: 9999;
-  background-color: #F2F2F2;
-  overflow: hidden;
-}
-
-#main-header-area > .navbar-default .sif-submenu {
-  padding-left: 15px;
-  font-size: 24px;
-  display: none;
+#sitewide-navigation img {
+  margin-top: 8px;
+  margin-right: -1px;
 }
 
 #sif-mobile-menu {
-  width: 300px;
   padding-top: 10px;
   padding-left: 10px;
 }
@@ -7940,7 +7942,7 @@ li.nav-site-home a {
 
 #sif-mobile-menu .sif-menu-link {
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 3px;
   margin-right: 10px;
 }
 
@@ -7952,6 +7954,7 @@ li.nav-site-home a {
 
 #sif-menu {
   padding-top: 2px;
+  padding-left: 0px;
 }
 
 #sif-menu a {
@@ -7990,6 +7993,26 @@ li.nav-site-home a {
   padding-left: 15px;
   font-size: 18px;
   display: none;
+}
+
+#sponsor-images {
+  padding-left: 0px;
+  margin-top: 80px;
+}
+
+#sponsor-images > li:first-child {
+  font-size: 100%;
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  color: #cccccc;
+}
+
+#sponsor-images > li {
+  list-style: none;
+  border-bottom: #cccccc solid 1px;
+  padding-top: 10px;
+  font-size: 24px;
+  padding-bottom: 15px;
 }
 
 .sampleClass {
@@ -8056,6 +8079,10 @@ li.nav-site-home a {
   border-bottom: #777777 solid 1px;
 }
 
+.widget .wysija-input {
+  width: 100%;
+}
+
 #tribe-events-list-widget-2 h4,
 #tribe-events-list-widget-2 .duration {
   font-size: 14px;
@@ -8081,12 +8108,6 @@ li.nav-site-home a {
 
 .header-text-left {
   position: relative;
-}
-
-.header-text-left #main-header-area {
-  position: absolute;
-  bottom: -25px;
-  right: -140px;
 }
 
 .header-text-right {

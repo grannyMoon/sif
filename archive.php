@@ -30,23 +30,23 @@
 
 			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
 				<h2 class="pagetitle"><?php _e('Blog Archives','sif'); ?></h2>
-			
+
 			<?php } ?>
 
 			<?php post_navigation(); ?>
 
 			<?php while (have_posts()) : the_post(); ?>
-			
+
 				<article <?php post_class("sif-post") ?>>
-				
+
           <div class="sif-post-wrapper">
 						<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-					
-						<?php posted_on(); ?>
 
 						<div class="entry">
 							<?php the_content(); ?>
 						</div>
+						<?php posted_on(); ?>
+
           </div>
 
 				</article>
@@ -54,14 +54,14 @@
 			<?php endwhile; ?>
 
 			<?php post_navigation(); ?>
-			
+
 	<?php else : ?>
 
 		<h2><?php _e('Fant ingenting..','sif'); ?></h2>
 
 	<?php endif; ?>
 
-    
+
 </div>
   <div class="col-md-3 col-sm-4">
     <?php get_sidebar(); ?>

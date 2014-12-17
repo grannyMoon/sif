@@ -6,6 +6,7 @@ build/
 dist/
 production/
 dev/sublime/
+static/
 
 .sass-cache/
 

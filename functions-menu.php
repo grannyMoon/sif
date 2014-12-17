@@ -1,13 +1,13 @@
 <?php
 
-/* 
+/*
  * Site wide custom menu
  * July 2014 Arve Gulbrandsen arve@arve.no
  */
 
 
 // We do not need this, sitewide menu is not being affected by any change
-// in the site spesific menus. 
+// in the site spesific menus.
 //add_action('wp_update_nav_menu', 'my_get_menu_items');
 //function my_get_menu_items($nav_menu_selected_id) {
 //    set_sitewide_menu();
@@ -16,13 +16,13 @@
 /**
  * Build sitewide menu. Build it from all blog-ids we can find.
  * TODO: Maybe someday that should be "all _active_ blog-ids"...
- * 
+ *
  * @return Array Saves an array as site_option
  */
 function set_sitewide_menu() {
-  
+
   $menu = array();
-  
+
   // Get all sites, put the in an array
   $sites = wp_get_sites();
   foreach ($sites as $site) {
@@ -30,62 +30,83 @@ function set_sitewide_menu() {
     $site['cat'] = $cat;
     $modSites[] = $site;
   }
-  
+
   // Traverse array, collect parent meny items
   foreach ($modSites as $site) {
-    
+
     // Site has no category (Håndaball, Fotball osv), forget it.
     if ($site['cat'] == "") {
       continue;
     }
-    
-    // Site is of type "master", means top menu object. 
+
+    // Site is of type "master", means top menu object.
     if (preg_match("/master$/", $site['cat'])) {
       $blogInfo = get_blog_details( array( 'blog_id' => $site['blog_id'] ) );
       $strippedCat = str_replace(" master", "", $site['cat']);
-      $menu[$strippedCat] = array("display" => "$blogInfo->blogname", 
-          "url" => "$blogInfo->path", 
+      if ($blogInfo->blogname == "Sverresborg Idrettsforening") {
+        $bname = "SIF";
+      } else {
+        $bname = $blogInfo->blogname;
+      }
+      $menu[$strippedCat] = array("display" => "$bname",
+          "url" => "$blogInfo->path",
           "sub" => array());
       if ($sites['cat'] == $blogInfo->blogname) {
-        
+
       }
     }
   }
-  
+
   // Traverse array again, this time collect children items
   foreach ($modSites as $site) {
-    
+
     // Site has no category (Håndaball, Fotball osv), forget it. Again.
     if ($site['cat'] == "") {
       continue;
     }
-    
-    // Site is _not_ of type "master", means its a child. 
+
+    // Site is _not_ of type "master", means its a child.
     if (!preg_match("/master$/", $site['cat'])) {
       $blogInfo = get_blog_details( array( 'blog_id' => $site['blog_id'] ) );
       $strippedName = str_replace($site['cat'] . " ", "", $blogInfo->blogname);
-      $subArr = array("display" => $strippedName, 
+      $subArr = array("display" => $strippedName,
                     "url" => "$blogInfo->path");
-      array_push($menu[$site['cat']]['sub'], $subArr); 
+      array_push($menu[$site['cat']]['sub'], $subArr);
     }
   }
-  
+
+  // Sort array by value
+  usort($menu, "cmp");
+
+  // and sort first level as well
+  foreach ($menu as $key => &$submenu) {
+    if (count($submenu['sub']) > 1) {
+      usort($submenu['sub'], "cmp");
+    }
+  }
+
   // Save the whole shebang.
   update_site_option('sitewide_menu', serialize($menu));
-  
+
+}
+
+function cmp($a, $b)
+{
+  // print $a["display"];
+  return strcmp($a["display"], $b["display"]);
 }
 
 /**
  * Print SIF sitewide menu
- * 
+ *
  * @param Array $menu_array
  */
 function print_sitewide_menu($menu_array, $htmlPropId) {
- 
+
   /**
    * Add custom items to array
    */
-  $custom_array = array('display' => 'Utvikling', 
+  $custom_array = array('display' => 'Utvikling',
                         'url' => '/utvikling/',
                         'sub' => array(
                             array(
@@ -98,20 +119,20 @@ function print_sitewide_menu($menu_array, $htmlPropId) {
                             ))
                         ))
   );
-  
+
   array_push($menu_array, $custom_array);
 
 //  print "<pre>";
 //  var_dump($menu_array);
 //  print "</pre>";
-  
+
   print get_sitewide_menu($menu_array, $htmlPropId);
-  
+
 }
 
 /**
  * Generate menu recursively from array
- * 
+ *
  * @param Array $menu_array
  * @param bool $is_sub
  * @return char HTML text
@@ -176,7 +197,7 @@ function get_sitewide_menu($menu_array, $htmlPropId, $is_sub=FALSE) {
     } else {
       $active = "";
     }
-    
+
 		/*
 		 * Use the created variables to output HTML
 		 */

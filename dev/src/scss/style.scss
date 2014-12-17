@@ -12,10 +12,10 @@ Style sheet for Sverresborg Idrettsforening
 
 a {
   color: $sif-green;
-  
+
   &:hover, &:focus {
     color: $sif-green-darker;
-  }  
+  }
 }
 
 input, textArea {
@@ -39,7 +39,13 @@ input, textArea {
 #header {
   margin-top: 40px;
   margin-bottom: 10px;
+
+  @media (max-width: $screen-xs-max) {
+    margin: 0;
+  }
 }
+
+
 
 #header-login {
   margin-right: 3px;
@@ -57,13 +63,13 @@ input, textArea {
   background-color: #fff;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  
+
   h2 {
     padding-top: 20px;
     margin-top: 0px;
     margin-bottom: 10px;
   }
-  
+
   .sif-post-wrapper {
     padding: 0 20px;
   }
@@ -79,7 +85,7 @@ input, textArea {
 // Site spesific menu class
 // --------------------------------------------------
 
-li.nav-site-home a { 
+li.nav-site-home a {
   font-size: $font-size-h3;
   color: #fff;
 }
@@ -88,35 +94,31 @@ li.nav-site-home a {
 // Site wide _mobile_ menu class
 // --------------------------------------------------
 
-#main-header-area > .navbar-default {
+.sitewide-mobile .navbar-toggle {
+  float: left;
+}
+
+#sitewide-navigation {
   background-color: $body-bg;
   border-color: $body-bg;
-  
+  margin-bottom: 0px;
+
   .navbar-collapse {
     border-color: $body-bg;
   }
-  
+
   .navbar-brand {
     color: $gray;
   }
-  
-  #sitewide-navbar-collapse {
-    position: absolute;
-    z-index: 9999;
-    background-color: $body-bg;
-    overflow: hidden;  
+
+  img {
+    margin-top: 8px;
+    margin-right: -1px;
   }
-  
-  .sif-submenu {
-    padding-left: 15px;
-    font-size: $font-size-h3;
-    display: none;
-  }
-  
+
 }
 
 #sif-mobile-menu {
-  width: 300px;
   padding-top: 10px;
   padding-left: 10px;
 
@@ -130,16 +132,16 @@ li.nav-site-home a {
 
   > li {
     padding-top: 10px;
-    font-size: $font-size-h3;  
+    font-size: $font-size-h3;
   }
 
   .sif-menu-link {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 3px;
     margin-right: 10px;
   }
 
-  .active, .active-parent { 
+  .active, .active-parent {
     display: inline-block;
     color: $gray-dark;
   }
@@ -152,45 +154,70 @@ li.nav-site-home a {
 
 #sif-menu {
   padding-top: 2px;
-  
+  padding-left: 0px;
+
   a {
     padding-left: 0px;
     text-decoration: none;
   }
-  
+
   li {
     list-style: none;
   }
-  
+
   > li {
     border-top: $gray-light solid 1px;
     padding-top: 10px;
-    font-size: $font-size-h3;  
+    font-size: $font-size-h3;
   }
-  
+
   > li:last-child {
     border-bottom: $gray-light solid 1px;
   }
-  
+
   .sif-menu-link {
     cursor: pointer;
     font-size: $font-size-small;
     margin-top: 10px;
     margin-right: 7px;
   }
-  
-  .active, .active-parent { 
+
+  .active, .active-parent {
     display: inline-block;
     color: $gray-dark;
   }
-  
-  
+
+
 }
 
 .sif-submenu {
   padding-left: 15px;
   font-size: $font-size-h4;
   display: none;
+}
+
+// Sponsor images
+// --------------------------------------------------
+
+#sponsor-images {
+  padding-left: 0px;
+  margin-top: 80px;
+
+  > li:first-child {
+    font-size: 100%;
+    font-variant: small-caps;
+    letter-spacing: 0.3em;
+    color: $gray-sif-lighter;
+  }
+
+  > li {
+    list-style: none;
+    border-bottom: $gray-sif-lighter solid 1px;
+    padding-top: 10px;
+    font-size: $font-size-h3;
+    padding-bottom: 15px;
+  }
+
 }
 
 // Widgets
@@ -227,18 +254,18 @@ li.nav-site-home a {
 }
 
 .widget {
-  
+
   /*background-color: #999;*/
   padding: 2px 10px 20px;
   margin-bottom: 20px;
-  
+
   h3 {
     margin: 30px 0 30px;
   }
-  
+
   ul, ol {
     padding: 0px;
-    
+
     li {
       border-top: $gray-light solid 1px;
       list-style: none;
@@ -248,26 +275,30 @@ li.nav-site-home a {
     > li:last-child {
       border-bottom: $gray-light solid 1px;
     }
-    
+
   }
-   
+
+  .wysija-input {
+    width: 100%;
+  }
+
 }
 
 #tribe-events-list-widget-2 {
-  
+
   h4, .duration {
     font-size: $font-size-base;
     margin: 0px;
   }
-  
+
   .duration {
     font-size: $font-size-small;
   }
-  
+
   .summary {
-    padding-top: 3px; 
+    padding-top: 3px;
   }
-  
+
   .tribe-events-widget-link a, .duration {
     font-weight: normal;
   }
@@ -282,29 +313,29 @@ li.nav-site-home a {
 
 .header-text-left {
   position: relative;
-  
+
   #main-header-area {
-    position: absolute;
-    bottom: -25px;
-    right: -140px;
-  }
+/*     position: absolute;
+  bottom: -30px;
+  right: -55px;
+   */  }
 }
 
 .header-text-right {
   position: relative;
-  line-height: 34px;  
-  
+  line-height: 34px;
+
   .search-wrapper {
     position: absolute;
     top: 20px;
     line-height: 20px;
     right: 0px;
-    
+
     input {
       width: 151px;
     }
   }
-  
+
   #header-login {
     position: absolute;
     top: 13px;
@@ -312,12 +343,12 @@ li.nav-site-home a {
     right: 168px;
     width: 75px;
   }
-  
+
   #searchform > div {
     background-color: #FFF;
     width: 182px;
   }
-  
+
   .sif-btn {
     border: 0px;
     margin-top: -2px;
@@ -326,7 +357,7 @@ li.nav-site-home a {
     height: 20px;
     background-color: #fff;
   }
-  
+
   #s {
     border: 0px;
   }

@@ -7,7 +7,7 @@
  get_header();  ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
+
 		<article class="post sif-post" id="post-<?php the_ID(); ?>">
 
       <?php
@@ -18,11 +18,9 @@
           the_post_thumbnail( 'large', $attr );
         }
       ?>
-      
+
       <div class="sif-post-wrapper">
         <h2><?php the_title(); ?></h2>
-
-        <?php posted_on(); ?>
 
         <div class="entry">
 
@@ -32,11 +30,13 @@
 
         </div>
 
-        <?php edit_post_link(__('Edit this entry','sif'), '<p>', '</p>'); ?>
+        <?php posted_on(); ?>
+
+        <?php edit_post_link(__('Rediger side','sif'), '<p>', '</p>'); ?>
       </div>
 
 		</article>
-		
+
 		<?php comments_template(); ?>
 
 		<?php endwhile; endif; ?>

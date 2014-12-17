@@ -34,7 +34,7 @@
 		<!-- If comments are open, but there are no comments. -->
 
 	 <?php else : // comments are closed ?>
-		<p><?php _e('Comments are closed.','sif'); ?></p>
+		<p><?php //_e('Comments are closed.','sif'); ?></p>
 
 	<?php endif; ?>
 	

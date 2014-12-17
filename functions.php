@@ -7,6 +7,9 @@
 // Register sitewide menu
 include_once 'functions-menu.php';
 
+// Register admin info page
+include_once 'functions-admin-info-page.php';
+
 // Register new blog details for SIF
 // add_action('wpmu_new_blog', 'SIFRegisterBlogDetails');
 
@@ -46,7 +49,7 @@ require_once('wp_bootstrap_navwalker.php');
 //	   wp_enqueue_script('jquery');
 //	}
 
-	    
+
 	function sif_enqueue_scripts() {
 	    wp_enqueue_style( 'sif-styles', get_template_directory_uri() . '/static/css/style.css' ); //our stylesheet
 	    wp_enqueue_script( 'jquery' );
@@ -54,13 +57,14 @@ require_once('wp_bootstrap_navwalker.php');
 	    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/static/js/bootstrap.js', array(), '1.0', true );
 	    wp_enqueue_script( 'rotate', get_template_directory_uri() . '/static/js/jquery.rotate.js', array(), '1.0', true );
 	    wp_enqueue_script( 'masonry', get_template_directory_uri() . '/static/js/masonry.js', array(), '1.0', true );
+	    wp_enqueue_script( 'bootstrap-hover-dropdown', get_template_directory_uri() . '/static/js/bootstrap-hover-dropdown.js', array(), '1.0', true );
 	    if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 	}
 	add_action( 'wp_enqueue_scripts', 'sif_enqueue_scripts' );
 
 
 
-	
+
 
 	// WP Title (based on twentythirteen: http://make.wordpress.org/core/tag/twentythirteen/)
 	function sif_wp_title( $title, $sep ) {
@@ -153,13 +157,13 @@ function sif_add_image_sizes() {
     add_image_size( 'sif-large', 600, 300, true );
 }
 add_action( 'init', 'sif_add_image_sizes' );
- 
+
 
 
 function sif_show_image_sizes($sizes) {
     $sizes['sif-thumb'] = __( 'Sverresborg Idrettsforening Thumb', 'sif' );
     $sizes['sif-large'] = __( 'Sverresborg Idrettsforening Large', 'sif' );
- 
+
     return $sizes;
 }
 add_filter('image_size_names_choose', 'sif_show_image_sizes');
@@ -191,7 +195,7 @@ function sif_handle_upload_prefilter($file)
     elseif ($height <  $minimum['height'])
         return array("error"=>"Image dimensions are too small. Minimum height is {$minimum['height']}px. Uploaded image height is $height px");
     else
-        return $file; 
+        return $file;
 }
 */
 
@@ -226,3 +230,15 @@ function remove_calendar_widget() {
 }
 
 add_action( 'widgets_init', 'remove_calendar_widget' );
+
+/**
+ * There is a lot of blogs in this site, so lets sort them in the admin list
+ */
+add_filter('get_blogs_of_user','sort_my_sites');
+function sort_my_sites($blogs) {
+
+	$f = create_function('$a,$b','return strcasecmp($a->blogname,$b->blogname);');
+	uasort($blogs, $f);
+
+	return $blogs;
+}

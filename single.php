@@ -8,7 +8,7 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<article <?php post_class("sif-post") ?> id="post-<?php the_ID(); ?>">
-      
+
             <?php
         if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
           $attr = array(
@@ -17,7 +17,7 @@
           the_post_thumbnail( 'large', $attr );
         }
       ?>
-			
+
       <div class="sif-post-wrapper">
         <h1 class="entry-title"><?php the_title(); ?></h1>
 
@@ -33,9 +33,9 @@
 
         </div>
 
-        <?php edit_post_link(__('Edit this entry','sif'),'','.'); ?>
+        <?php edit_post_link(__('Rediger side','sif'),'','.'); ?>
       </div>
-			
+
 		</article>
 
 	<?php comments_template(); ?>
@@ -43,7 +43,7 @@
 	<?php endwhile; endif; ?>
 
 <?php post_navigation(); ?>
-	
+
 
 
 <?php get_footer(); ?>

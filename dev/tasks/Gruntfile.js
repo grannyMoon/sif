@@ -146,6 +146,7 @@ module.exports = function (grunt) {
             'jquery.js': 'jquery/jquery.js',
             'bootstrap.js': 'bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'masonry.js': 'masonry/dist/masonry.pkgd.js',
+            'bootstrap-hover-dropdown.js': 'bootstrap-hover-dropdown/bootstrap-hover-dropdown.js',
         }
       },
       sass: {
