@@ -182,9 +182,14 @@ li.nav-site-home a {
     margin-right: 7px;
   }
 
-  .active, .active-parent {
-    display: inline-block;
-    color: $gray-dark;
+  .active {
+    >a {
+      color: $gray-dark;
+    }
+  
+    ul {
+      display: inline-block;
+    }
   }
 
 

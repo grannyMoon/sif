@@ -206,8 +206,9 @@ function get_sitewide_menu($menu_array, $htmlPropId, $is_sub=FALSE) {
     /**
      * Mark active element as active
      */
-    if (strstr($_SERVER['REQUEST_URI'], $url)) {
+    if (strstr(substr($_SERVER['REQUEST_URI'], 1), substr($url, 1))) {
       $active = " class='active'";
+      $link = str_replace("glyphicon-chevron-left", "glyphicon-chevron-down", $link);
     } else {
       $active = "";
     }
@@ -215,7 +216,7 @@ function get_sitewide_menu($menu_array, $htmlPropId, $is_sub=FALSE) {
 		/*
 		 * Use the created variables to output HTML
 		 */
-		$menu .= "<li><a href='$url'$active>$display</a>$link$sub</li>\n";
+		$menu .= "<li$active><a href='$url'>$display</a>$link$sub</li>\n";
 
 		/*
 		 * Destroy the variables to ensure they're reset

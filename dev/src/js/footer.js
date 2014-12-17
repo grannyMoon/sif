@@ -1,15 +1,15 @@
 /* This js is after anything else on the page */
 
 (function($) {
-  
+
   $( document ).ready(function() {
-    
+
     /**
      * Rotate chevron and show sub elements
      */
     // $(".sif-submenu").hide();
     $(".sif-menu-link").click(function(e) {
-      
+
       var $this = $(this), transitionTime = 300;
 
       var rotateDirection = '90';
@@ -22,19 +22,8 @@
       });
       $(this).next().toggle(transitionTime);
     });
-    
-    /**
-     * 
-     * Show active element in menu
-     */
-    $(window).on("load", function(){
-      var $sub = $('#sif-menu').find('.active').closest('.sif-submenu');
-      $sub.show();
-      // Sjekk dette i en dypere meny
-      $sub.prevAll('a').addClass("active-parent");
-      $sub.prevAll('span').toggleClass('glyphicon-chevron-left glyphicon-chevron-down');
-    });
-    
+
+    // Show Masonry in two cols
     var reload = false;
     $(window).on("resize load", function() {
       if ($(".sampleClass").css("float") == "none" ) {
@@ -43,11 +32,12 @@
         $('#sidebar .widget').css("width", desired_width);
         var container = document.querySelector('#sidebar');
         var msnry = new Masonry( container, {
-          itemSelector: '.widget', 
+          itemSelector: '.widget',
           "gutter": 20
         });
       }
     });
+
     $(window).on("resize", function() {
       if ($(".sampleClass").css("float") == "left" && reload) {
         window.location.href = window.location.href;
@@ -55,5 +45,5 @@
       }
     });
   });
-  
+
 })(jQuery);
