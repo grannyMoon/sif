@@ -44,7 +44,7 @@ function set_sitewide_menu() {
       $blogInfo = get_blog_details( array( 'blog_id' => $site['blog_id'] ) );
       $strippedCat = str_replace(" master", "", $site['cat']);
       if ($blogInfo->blogname == "Sverresborg Idrettsforening") {
-        $bname = "SIF";
+        $bname = "Sverresborg IF";
       } else {
         $bname = $blogInfo->blogname;
       }
@@ -83,6 +83,20 @@ function set_sitewide_menu() {
     if (count($submenu['sub']) > 1) {
       usort($submenu['sub'], "cmp");
     }
+  }
+
+  // Then it is time for exceptions.. Sverresborg IF want's to be on top.
+  $index = -1;
+  foreach ($menu as $key => $dept) {
+    if ($dept['display'] == "Sverresborg IF") {
+      $index = $key;
+    }
+  }
+
+  if ($index > -1) {
+    $mainArrElem = $menu[$index];
+    array_splice($menu, $index);
+    array_unshift($menu, $mainArrElem);
   }
 
   // Save the whole shebang.

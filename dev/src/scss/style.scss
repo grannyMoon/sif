@@ -168,7 +168,7 @@ li.nav-site-home a {
   > li {
     border-top: $gray-light solid 1px;
     padding-top: 10px;
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
   }
 
   > li:last-child {
@@ -178,7 +178,7 @@ li.nav-site-home a {
   .sif-menu-link {
     cursor: pointer;
     font-size: $font-size-small;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 7px;
   }
 
@@ -192,7 +192,7 @@ li.nav-site-home a {
 
 .sif-submenu {
   padding-left: 15px;
-  font-size: $font-size-h4;
+  font-size: $font-size-h5;
   display: none;
 }
 

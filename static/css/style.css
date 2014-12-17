@@ -7969,7 +7969,7 @@ li.nav-site-home a {
 #sif-menu > li {
   border-top: #777777 solid 1px;
   padding-top: 10px;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 #sif-menu > li:last-child {
@@ -7979,7 +7979,7 @@ li.nav-site-home a {
 #sif-menu .sif-menu-link {
   cursor: pointer;
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 7px;
 }
 
@@ -7991,7 +7991,7 @@ li.nav-site-home a {
 
 .sif-submenu {
   padding-left: 15px;
-  font-size: 18px;
+  font-size: 14px;
   display: none;
 }
 
@@ -8154,4 +8154,10 @@ li.nav-site-home a {
 
 .tribe-events-button {
   background-color: #2db978;
+}
+
+iframe {
+  border: 0px;
+  width: 100%;
+  height: 70vw;
 }
