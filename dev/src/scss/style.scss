@@ -363,9 +363,18 @@ li.nav-site-home a {
   }
 }
 
-// Headerstuffhack
+// Tribe hack
 // --------------------------------------------------
 
 .tribe-events-button {
   background-color: $sif-green;
+}
+
+// iframes
+// --------------------------------------------------
+
+iframe {
+  border: 0px;
+  width: 100%;
+  height: 70vw
 }
